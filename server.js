@@ -3,8 +3,9 @@ const app=express()
 const port=8082
 const path=require('path')
 const layout=require('express-ejs-layouts')
-app.use(express.static(path.join(__dirname,"views")))
+app.set("views", path.join(__dirname, "views")); 
 app.set("view engine","ejs")
+app.use(express.static(path.join(__dirname, "views"))); 
 //app.use(layout)
 app.get('/home',(req,res)=>{
     try {
