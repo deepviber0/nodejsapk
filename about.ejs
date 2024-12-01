@@ -2,10 +2,136 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=1200,initial-scale=0.33,maximum-scale:1.0,user-scalable=yes">
+
+    <title>Expense Tracker</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            margin-top: 90px;
+            overflow: hidden;
+        }
+
+       
+
+        p{
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+        .container{
+            background-color: #dad3d3;
+            width:450px;
+            height:auto;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0px 6px 12px rgba(98, 95, 95, 0.619);
+           
+        }
+        .inp{
+            padding: 20px;
+            margin: 10px;
+        }
+        input{
+            border-radius: 3px;
+            margin: 10px;
+            width:350px;
+            height:25px;
+            color: rgb(116, 116, 117);
+            border: 1px solid ;
+            margin-right: 20px;
+            display: flex;
+            
+        }
+        button{
+            margin: 4px;
+            padding: 5px;
+            position: relative;
+            top:-20px;
+            right:-50px;
+            transform: translate(-20%,50%);
+            background-color: rgb(100, 100, 249);
+            border-radius: 4px;
+            color:azure;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        .list{
+            height:30px;
+            width:350px;
+            margin: 5px ;
+            background-color: rgb(200, 247, 138);
+            list-style: none;
+            padding-top: 8px;
+            padding-left: 6px;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            border-radius: 3px;
+        }
+        
+    </style>
 </head>
 <body>
-    <h1>THIS IS ABOUT PAGE</h1>
+    <div class="container">
+        <p>Expense Tracker</p>
+        <div class="inp">
+            <label for="inp1">Item Name:</label>
+            <input type="text" id="inp1" autofocus required placeholder="Enter Item Name"><br>
+            <label for="inp2">Item Price:</label>
+            <input type="number" id="inp2" required placeholder="Enter Item Price">
+        </div>
+        <ul id="ul">
+
+        </ul>
+        <button type="button" id="but1" onclick="add()">Add Item</button>
+        <button type="button"  id="but2">Clear All</button>
+        <br>
+        <p id="cal">Total: ₹0.00</p>
+    </div>
+    <script>
+        
+        let s=0;
+        function add() {
+            
+            const inp1 = document.getElementById("inp1").value;
+            const inp2 = document.getElementById("inp2").value;
+        
+            if (inp1 && inp2) {
+                const list = document.createElement("li");
+                list.className = "list";
+                list.innerHTML = `${inp1}: ₹${parseFloat(inp2).toFixed(2)}`
+
+                
+                const ul = document.getElementById("ul");
+                ul.appendChild(list);
+                let b1;
+                 bl=parseInt(inp2);
+                 s+=bl;
+                 document.getElementById("cal").innerText = `Total: ₹${s.toFixed(2)}`;
+
+                document.getElementById("inp1").value = "";
+                document.getElementById("inp2").value = "";
+            } else {
+                alert("Please enter both item name and price.");
+            }
+            console.log(bl)
+        }
+         
+        document.getElementById("but2").addEventListener("click",function(){
+            console.log("clicked");
+            const ul=document.getElementById("ul");
+            if(ul.innerHTML!==""){
+                ul.innerHTML="";
+                s = 0;
+                document.getElementById("cal").innerText = `Total: ₹${s.toFixed(2)}`;
+            }else{
+                alert("There Are No Items In The List!!");
+
+            }
+        })
+        
+
+    </script>
 </body>
 </html>
