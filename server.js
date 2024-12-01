@@ -20,7 +20,7 @@ app.get('/portfolio',(req,res)=>{
     }
 })
 
-app.get('/abt',(req,res)=>{
+app.get('/P-ET',(req,res)=>{
     res.render("about")
 })
 
