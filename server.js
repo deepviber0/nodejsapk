@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 app.get('/portfolio',(req,res)=>{
     try {
-        res.render("home"); // Ensure "home.ejs" exists in the views folder.
+        res.send("SORRY NOT UPLOADED"); // Ensure "home.ejs" exists in the views folder.
     } catch (error) {
         console.error(error);
         res.status(500).send("An error occurred while rendering the page.");
