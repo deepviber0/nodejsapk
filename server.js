@@ -11,9 +11,9 @@ app.set("views", path.join(__dirname));
 app.get('/', (req, res) => {
     res.send('Welcome to the home page!');  // Response for the root URL
 });
-app.get('/home',(req,res)=>{
+app.get('/portfolio',(req,res)=>{
     try {
-        res.render("home",{user:"umar"}); // Ensure "home.ejs" exists in the views folder.
+        res.render("home"); // Ensure "home.ejs" exists in the views folder.
     } catch (error) {
         console.error(error);
         res.status(500).send("An error occurred while rendering the page.");
