@@ -3,9 +3,10 @@ const app=express()
 const port=process.env.PORT || 4000;
 const path=require('path')
 const layout=require('express-ejs-layouts')
-app.set("views", path.join(__dirname, "views")); 
 app.set("view engine","ejs")
-app.use(express.static(path.join(__dirname, "views"))); 
+app.set("views", path.join(__dirname)); 
+
+//app.use(express.static(path.join(__dirname, "views"))); 
 //app.use(layout)
 app.get('/', (req, res) => {
     res.send('Welcome to the home page!');  // Response for the root URL
