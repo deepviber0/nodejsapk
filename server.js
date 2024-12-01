@@ -1,6 +1,6 @@
 const express=require('express')
 const app=express()
-const port=8082
+const port=process.env.PORT || 4000;
 const path=require('path')
 const layout=require('express-ejs-layouts')
 app.set("views", path.join(__dirname, "views")); 
